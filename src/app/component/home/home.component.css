@@ -1,0 +1,12 @@
+.img-main-carousel {
+    max-height: 400px;
+    width: 100%;
+}
+
+.container {
+    overflow: hidden;
+}
+
+rating span {
+    outline: 0 none;
+}

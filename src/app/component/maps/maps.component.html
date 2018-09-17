@@ -1,0 +1,15 @@
+<!--Google Map Component-->
+<h1>{{ title }}</h1>
+
+<div class="container">
+  <div class="form-group">
+    <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search_from [formControl]="searchControl">
+    <br/>
+    <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search_to [formControl]="searchControl">
+  </div>
+  <!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+  <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+  </agm-map>
+</div>
