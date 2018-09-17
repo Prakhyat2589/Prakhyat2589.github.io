@@ -19,7 +19,10 @@ import { Component, OnInit } from '@angular/core';
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" routerLink="/service" routerLinkActive="active">Services</a>
-                      </li>       
+                      </li> 
+                      <li class="nav-item">
+                        <a class="nav-link" routerLink="/reactive-forms" routerLinkActive="active">Rective Forms</a>
+                      </li>     
                   </ul>
                 </div>
               </nav>

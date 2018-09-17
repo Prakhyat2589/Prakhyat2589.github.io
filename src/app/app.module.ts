@@ -13,10 +13,13 @@ import { LivedataComponent } from './component/livedata/livedata.component';
 //import { GetList } from './services/getlist_service';
 import { GetList1 } from './services/getlist-service1.service';
 import { ServiceComponent } from './component/service/service.component';
+import { ReactiveFormsComponent } from './component/reactive-forms/reactive-forms.component';
+import { ProfileEditorComponent } from './component/reactive-forms/sub-forms/profile-editor/profile-editor.component';
+import { NameEditorComponent } from './component/reactive-forms/sub-forms/name-editor/name-editor.component';
 
 
 @NgModule({
-  declarations: [ AppComponent, HomeComponent, MapsComponent, LivedataComponent, ServiceComponent ],
+  declarations: [ AppComponent, HomeComponent, MapsComponent, LivedataComponent, ServiceComponent, ReactiveFormsComponent, ProfileEditorComponent, NameEditorComponent ],
   imports: [
      BrowserModule,
      FormsModule,
@@ -25,7 +28,8 @@ import { ServiceComponent } from './component/service/service.component';
        {path:'', component: HomeComponent},
        {path:'maps', component: MapsComponent},
        {path:'weatherdata', component: LivedataComponent},
-       {path:'service', component: ServiceComponent}
+       {path:'service', component: ServiceComponent},
+       {path:'reactive-forms', component: ReactiveFormsComponent}
      ]),
      CarouselModule.forRoot(),
      RatingModule.forRoot(),
