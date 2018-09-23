@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarouselModule, RatingModule } from 'ngx-bootstrap';
 import { AngularWeatherWidgetModule, WeatherApiName } from 'angular-weather-widget';
@@ -10,26 +11,35 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
 import { MapsComponent } from './component/maps/maps.component';
 import { LivedataComponent } from './component/livedata/livedata.component';
-//import { GetList } from './services/getlist_service';
 import { GetList1 } from './services/getlist-service1.service';
 import { ServiceComponent } from './component/service/service.component';
 import { ReactiveFormsComponent } from './component/reactive-forms/reactive-forms.component';
 import { ProfileEditorComponent } from './component/reactive-forms/sub-forms/profile-editor/profile-editor.component';
 import { NameEditorComponent } from './component/reactive-forms/sub-forms/name-editor/name-editor.component';
+import { LoginComponent } from './component/authentication-forms/login/login.component';
+import { AuthGuard } from './component/authentication-forms/guard/guard';
+import { RegistrationComponent } from './component/authentication-forms/registration/registration.component';
+import { AlertService, AuthenticationService, UserService } from './component/authentication-forms/services/index';
+import { JwtInterceptor, fakeBackendProvider } from './component/authentication-forms/helpers/index';
+import { AlertComponent } from './component/authentication-forms/message/alert.component';
+
 
 
 @NgModule({
-  declarations: [ AppComponent, HomeComponent, MapsComponent, LivedataComponent, ServiceComponent, ReactiveFormsComponent, ProfileEditorComponent, NameEditorComponent ],
+  declarations: [ AppComponent, HomeComponent, MapsComponent, LivedataComponent, ServiceComponent, ReactiveFormsComponent, ProfileEditorComponent, NameEditorComponent, LoginComponent, AlertComponent, RegistrationComponent],
   imports: [
      BrowserModule,
      FormsModule,
      ReactiveFormsModule,
+     HttpClientModule,
      RouterModule.forRoot([
        {path:'', component: HomeComponent},
        {path:'maps', component: MapsComponent},
        {path:'weatherdata', component: LivedataComponent},
        {path:'service', component: ServiceComponent},
-       {path:'reactive-forms', component: ReactiveFormsComponent}
+       {path:'reactive-forms', component: ReactiveFormsComponent},
+       {path: 'login', component: LoginComponent },
+       {path: 'register', component: RegistrationComponent },
      ]),
      CarouselModule.forRoot(),
      RatingModule.forRoot(),
@@ -45,7 +55,19 @@ import { NameEditorComponent } from './component/reactive-forms/sub-forms/name-e
       })
    ],
   //Service is defined in the providers 
-  providers: [GetList1],
+  providers: [GetList1,
+    AuthGuard,
+    AlertService,
+    AuthenticationService,
+    UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    },
+  // provider used to create fake backend
+  fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
