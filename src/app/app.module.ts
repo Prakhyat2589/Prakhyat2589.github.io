@@ -22,11 +22,12 @@ import { RegistrationComponent } from './component/authentication-forms/registra
 import { AlertService, AuthenticationService, UserService } from './component/authentication-forms/services/index';
 import { JwtInterceptor, fakeBackendProvider } from './component/authentication-forms/helpers/index';
 import { AlertComponent } from './component/authentication-forms/message/alert.component';
+import { ShoppingCartComponent } from './component/shopping-cart/shopping-cart.component';
 
 
 
 @NgModule({
-  declarations: [ AppComponent, HomeComponent, MapsComponent, LivedataComponent, ServiceComponent, ReactiveFormsComponent, ProfileEditorComponent, NameEditorComponent, LoginComponent, AlertComponent, RegistrationComponent],
+  declarations: [ AppComponent, HomeComponent, MapsComponent, LivedataComponent, ServiceComponent, ReactiveFormsComponent, ProfileEditorComponent, NameEditorComponent, LoginComponent, AlertComponent, RegistrationComponent, ShoppingCartComponent],
   imports: [
      BrowserModule,
      FormsModule,
@@ -40,6 +41,7 @@ import { AlertComponent } from './component/authentication-forms/message/alert.c
        {path:'reactive-forms', component: ReactiveFormsComponent},
        {path: 'login', component: LoginComponent },
        {path: 'register', component: RegistrationComponent },
+       {path: 'shopping-cart', component: ShoppingCartComponent },
      ]),
      CarouselModule.forRoot(),
      RatingModule.forRoot(),

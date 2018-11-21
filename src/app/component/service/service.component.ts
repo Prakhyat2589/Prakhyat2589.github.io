@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { List } from 'src/app/classes/getlist';
-//import { GetList } from 'src/app/services/getlist_service';
 import { GetList1 } from 'src/app/services/getlist-service1.service';
 
 @Component({

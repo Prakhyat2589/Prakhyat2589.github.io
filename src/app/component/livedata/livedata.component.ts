@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherSettings, TemperatureScale, ForecastMode, WeatherLayout } from 'angular-weather-widget';
-// import { catchError } from 'rxjs/operators'
-// import { Observable } from 'rxjs';
 
 
 @Component({
   selector: 'app-livedata',
-  templateUrl: './livedata.component.html',
-  styleUrls: ['./livedata.component.css']
+  templateUrl: 'livedata.component.html',
+  styleUrls: ['livedata.component.css']
 })
 export class LivedataComponent implements OnInit {
   settings: WeatherSettings = {
@@ -26,9 +24,6 @@ export class LivedataComponent implements OnInit {
     layout: WeatherLayout.WIDE,
     language: 'en'
   };
-
-
-
 
   constructor() { }
 
