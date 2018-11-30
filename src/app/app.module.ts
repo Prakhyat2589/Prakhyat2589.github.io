@@ -23,11 +23,12 @@ import { AlertService, AuthenticationService, UserService } from './component/au
 import { JwtInterceptor, fakeBackendProvider } from './component/authentication-forms/helpers/index';
 import { AlertComponent } from './component/authentication-forms/message/alert.component';
 import { ShoppingCartComponent } from './component/shopping-cart/shopping-cart.component';
+import { ProductdetailsComponent } from './component/productdetails/productdetails.component';
 
 
 
 @NgModule({
-  declarations: [ AppComponent, HomeComponent, MapsComponent, LivedataComponent, ServiceComponent, ReactiveFormsComponent, ProfileEditorComponent, NameEditorComponent, LoginComponent, AlertComponent, RegistrationComponent, ShoppingCartComponent],
+  declarations: [ AppComponent, HomeComponent, MapsComponent, LivedataComponent, ServiceComponent, ReactiveFormsComponent, ProfileEditorComponent, NameEditorComponent, LoginComponent, AlertComponent, RegistrationComponent, ShoppingCartComponent, ProductdetailsComponent],
   imports: [
      BrowserModule,
      FormsModule,
